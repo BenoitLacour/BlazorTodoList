@@ -1,0 +1,16 @@
+@code {
+    
+}
+<div>
+    <ul>
+        @foreach (var item in List.Items)
+        {
+            <li>
+                <TodoItem Item="@item"></TodoItem>
+            </li>
+        }
+    </ul>
+</div>
+<div>
+    <input @bind="_newItemTitle"/><button type="button" @onclick="AddItem">Ajouter</button>
+</div>

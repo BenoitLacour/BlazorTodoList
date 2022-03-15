@@ -1,0 +1,19 @@
+﻿@page "/"
+@using Todo.Model
+@using TodoList = Todo.Model.TodoList
+
+<PageTitle>Index</PageTitle>
+
+<TodoList List=@_todoList></TodoList>
+
+@code{
+
+    private TodoList _todoList = new Model.TodoList();
+    
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        _todoList.Add(new Item("Item 1", false));
+        _todoList.Add(new Item("Item 2", true));
+    }
+}
