@@ -1,6 +1,4 @@
-@code {
-    
-}
+<button @onclick="(() => this.StateHasChanged())">Refresh</button>
 <div>
     <ul>
         @foreach (var item in List.Items)
@@ -11,6 +9,8 @@
         }
     </ul>
 </div>
-<div>
-    <input @bind="_newItemTitle"/><button type="button" @onclick="AddItem">Ajouter</button>
-</div>
+
+<TodoAddItem List="@List"></TodoAddItem>
+@* <div> *@
+@*     <input @bind="_newItemTitle"/><button type="button" @onclick="AddItem">Ajouter</button> *@
+@* </div> *@

@@ -5,6 +5,6 @@ namespace Todo.Components;
 
 public partial class TodoItem
 {
-    [Parameter]
+    [Parameter, EditorRequired]
     public Item Item { get; set; } = null!;
 }
