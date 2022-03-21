@@ -1,4 +1,6 @@
-<div>
-    <input type="text" @bind="_newItemTitle" @bind:event="oninput"/>
-    <button type="button" disabled=@(string.IsNullOrWhiteSpace(_newItemTitle)) @onclick="AddTask">Ajouter</button>
+<div class="input-group mb-3">
+      <input type="text" class="form-control" autofocus @bind="_newItemTitle" @bind:event="oninput"/>
+      <div class="input-group-append">
+          <button type="button" class="btn btn-outline-secondary cursor-pointer" disabled=@(string.IsNullOrWhiteSpace(_newItemTitle)) @onclick="AddTask">Ajouter</button> 
+      </div>
 </div>

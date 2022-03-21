@@ -1,12 +1,22 @@
 @using Task = Todo.Models.TodoTask
-<div>
-    <ul>
+
+<div class="card m-auto mt-5" style="width: 30rem;">
+    <div class="card-header  justify-content-between  text-primary fw-bold">
+        Mes tâches
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            @Tasks.Count
+          </span>
+        <span class="badge badge-primary"></span>
+    </div>
+    <ul class="list-group list-group-flush">
         @foreach (var item in Tasks)
         {
-            <li>
-                <TaskItem Item="@item"></TaskItem>
+            <li class="list-group-item">
+             <TaskItem Item="@item"></TaskItem>
             </li>
         }
+        <li class="list-group-item">
+            <TaskAdd TaskAdded="AddNewTask"></TaskAdd>    
+        </li>
     </ul>
 </div>
-<TaskAdd TaskAdded="AddNewTask"></TaskAdd>
