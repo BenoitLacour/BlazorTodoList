@@ -1,4 +1,0 @@
-<div>
-    <input @bind="_newItemTitle" @bind:event="oninput"/> 
-    <button type="button" @onclick="AddItem" disabled=@(String.IsNullOrWhiteSpace(_newItemTitle))>Ajouter</button>
-</div>
