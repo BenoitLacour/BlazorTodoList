@@ -1,2 +1,4 @@
 ﻿@page "/"
-<PageTitle>Index</PageTitle>
+@using Task = Todo.Models.Task
+
+<TaskList Tasks="@(new List<Task>() { new("tache 1", false), new("tache 2", true) })"></TaskList>

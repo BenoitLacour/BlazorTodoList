@@ -1,0 +1,12 @@
+@using Task = Todo.Models.Task
+<div>
+    <ul>
+        @foreach (var item in Tasks)
+        {
+            <li>
+                <TaskItem Item="@item"></TaskItem>
+            </li>
+        }
+    </ul>
+</div>
+<TaskAdd TaskAdded="AddNewTask"></TaskAdd>
