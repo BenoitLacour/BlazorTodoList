@@ -1,4 +1,5 @@
 ﻿@page "/"
-@using Task = Todo.Models.Task
+@using Todo.Models
 
-<TaskList Tasks="@(new List<Task>() { new("tache 1", false), new("tache 2", true) })"></TaskList>
+
+<TaskList Tasks="@(new List<TodoTask>() { new TodoTask("tache 1", false), new TodoTask("tache 2", true) })"></TaskList>

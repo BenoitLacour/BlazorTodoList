@@ -1,9 +1,10 @@
 using Microsoft.AspNetCore.Components;
+using Todo.Models;
 
 namespace Todo.Components;
 
 public partial class TaskItem
 {
     [Parameter, EditorRequired]
-    public Models.Task Item { get; set; } = null!;
+    public TodoTask Item { get; set; } = null!;
 }

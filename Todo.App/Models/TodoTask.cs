@@ -1,8 +1,8 @@
 namespace Todo.Models;
 
-public class Task
+public class TodoTask
 {
-    public Task(string label, bool toggle)
+    public TodoTask(string label, bool toggle)
     {
         this.Label = label;
         this.Toggle = toggle;

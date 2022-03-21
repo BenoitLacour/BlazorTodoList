@@ -1,14 +1,15 @@
 using Microsoft.AspNetCore.Components;
+using Todo.Models;
 
 namespace Todo.Components;
 
 public partial class TaskList
 {
     [Parameter, EditorRequired]
-    public List<Models.Task> Tasks { get; set; } = null!;
+    public List<TodoTask> Tasks { get; set; } = null!;
     
-    private void AddNewTask(Models.Task newTask)
+    private void AddNewTask(TodoTask newTodoTask)
     {
-        Tasks.Add(newTask);
+        Tasks.Add(newTodoTask);
     }
 }
