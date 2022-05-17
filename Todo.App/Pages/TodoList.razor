@@ -1,0 +1,16 @@
+@page "/TodoList"
+@using Todo.Components
+<div class="card m-auto mt-5" style="width: 30rem;">
+    <div class="card-header  justify-content-between  text-primary fw-bold">
+        Mes tâches
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            1
+        </span>
+        <span class="badge badge-primary"></span>
+    </div>
+    <ul class="list-group list-group-flush">
+        <TodoItem Titre="Ma première tache"></TodoItem>   
+        <TodoItem Titre="Acheter du pain"></TodoItem> 
+        <TodoItem Titre="Abonnez vous !"></TodoItem> 
+    </ul>
+</div>
