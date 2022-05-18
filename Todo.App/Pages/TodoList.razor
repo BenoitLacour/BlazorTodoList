@@ -4,13 +4,21 @@
     <div class="card-header  justify-content-between  text-primary fw-bold">
         Mes tâches
         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-            1
+            @Items.Count
         </span>
         <span class="badge badge-primary"></span>
     </div>
     <ul class="list-group list-group-flush">
-        <TodoItem Titre="Ma première tache"></TodoItem>   
-        <TodoItem Titre="Acheter du pain"></TodoItem> 
-        <TodoItem Titre="Abonnez vous !"></TodoItem> 
+        @foreach (var item in Items)
+        {
+            <TodoItem Titre="@item"></TodoItem>
+        }
     </ul>
+    <div class="input-group mb-3">
+          <input type="text" class="form-control" @bind="_newItem"/>
+          <div class="input-group-append">
+              <button type="button" class="btn btn-outline-secondary cursor-pointer"
+                      @onclick="AddItem">Ajouter</button> 
+          </div>
+    </div>
 </div>
