@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo.App", "Todo.App\Todo.App.csproj", "{F21F2F98-A5D1-4BC7-A824-F8A98DF1CC5B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo.Server", "Todo.Server\Todo.Server.csproj", "{4A7D597C-EDA7-4AE6-AD96-E56F7F5EEAD1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{F21F2F98-A5D1-4BC7-A824-F8A98DF1CC5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F21F2F98-A5D1-4BC7-A824-F8A98DF1CC5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F21F2F98-A5D1-4BC7-A824-F8A98DF1CC5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A7D597C-EDA7-4AE6-AD96-E56F7F5EEAD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A7D597C-EDA7-4AE6-AD96-E56F7F5EEAD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A7D597C-EDA7-4AE6-AD96-E56F7F5EEAD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A7D597C-EDA7-4AE6-AD96-E56F7F5EEAD1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
