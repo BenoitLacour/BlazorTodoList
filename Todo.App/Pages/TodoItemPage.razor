@@ -1,0 +1,56 @@
+@page "/TodoItem/{Id:guid}/{Optional:int?}"
+@using Todo.Models
+
+@if (_todoItem is not null)
+{
+    <div class="card m-auto mt-5" style="width: 30rem;">
+        <div class="card-header  justify-content-between  text-primary fw-bold">
+            Détail
+        </div>
+        <div class="card-body">
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">Id</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" @bind="@_todoItem.Id" readonly/>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">Label</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" @bind="@_todoItem.Label"/>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-sm-10 offset-sm-2">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" @bind="@_todoItem.Done">
+                        <label class="form-check-label">
+                            Fait
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    
+    [Inject]
+    public TodoList TodoList { get; set; }
+    
+    [Parameter]
+    public Guid Id { get; set; }
+
+    [Parameter]
+    public int? Optional { get; set; }
+    
+    private TodoItem _todoItem;
+
+    protected override void OnInitialized()
+    {
+        _todoItem = TodoList.Items.FirstOrDefault(item => item.Id == Id);
+        base.OnInitialized();
+    }
+
+}

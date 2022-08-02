@@ -4,14 +4,14 @@
     <div class="card-header  justify-content-between  text-primary fw-bold">
         Mes tâches
         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-            @Items.Count
+            @TodoList.Count
         </span>
         <span class="badge badge-primary"></span>
     </div>
     <ul class="list-group list-group-flush">
-        @foreach (var item in Items)
+        @foreach (var item in TodoList.Items)
         {
-            <TodoItem Titre="@item"></TodoItem>
+            <TodoItemComponent Item="@item"></TodoItemComponent>
         }
      <li class="list-group-item">
                 <div class="input-group mb-3">
