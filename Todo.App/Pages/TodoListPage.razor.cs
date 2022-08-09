@@ -1,18 +1,32 @@
 using Microsoft.AspNetCore.Components;
 using Todo.Models;
+using Todo.Services;
 
 namespace Todo.Pages;
 
 public partial class TodoListPage
 {
-
     [Inject]
-    public TodoList TodoList { get; set; }
+    public TodoListService TodoListService { get; set; }
 
     private string _newItem = String.Empty;
-    
-    private void AddItem()
+
+    protected override async Task OnInitializedAsync()
     {
-        TodoList.Add(_newItem);
+        await LoadItems();
+        await base.OnInitializedAsync();
+    }
+
+    private async Task LoadItems()
+    {
+        Items = await TodoListService.GetAll();
+    }
+
+    public IEnumerable<TodoItem> Items { get; set; } = Array.Empty<TodoItem>();
+
+    private async Task AddItem()
+    {
+        await TodoListService.AddItem(_newItem);
+        await LoadItems();
     }
 }
