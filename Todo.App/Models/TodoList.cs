@@ -20,4 +20,7 @@ public class TodoList
         todoList.Add("Abonnez-vous");
         return todoList;
     }
+
+    public void Remove(Guid todoItemId) =>  _items.Remove(_items.First(a => a.Id == todoItemId));
+    
 }
