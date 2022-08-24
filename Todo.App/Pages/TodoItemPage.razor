@@ -1,5 +1,7 @@
 @page "/TodoItem/{Id:guid}/{Optional:int?}"
 @using Todo.Models
+@inject NavigationManager _navigationManager
+@inject IJSRuntime _jsRuntime
 
 @if (_todoItem is not null)
 {
@@ -54,8 +56,6 @@
     
     private TodoItem _todoItem;
     
-    
-    
 
     protected override void OnInitialized()
     {
@@ -65,5 +65,10 @@
 
     private async Task DeleteItemAsync()
     {
+        if (await _jsRuntime.InvokeAsync<bool>("confirm", "Are you sure?"))
+        {
+            TodoList.Remove(_todoItem.Id);
+            _navigationManager.NavigateTo("/");    
+        }
     }
 }
