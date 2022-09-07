@@ -1,8 +1,8 @@
 @using Todo.Models
-<li class="list-group-item">
+<li class="list-group-item" draggable="true" data-todoItemId="@Item.Id" >
     <span><input type="checkbox" @bind="@Item.Done"/> @Item.Label <a href="/TodoItem/@Item.Id">Detail</a></span>
 </li>
-
+ 
 @code{
 
     [Parameter, EditorRequired]

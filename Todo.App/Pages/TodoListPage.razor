@@ -13,16 +13,21 @@
         {
             <TodoItemComponent Item="@item"></TodoItemComponent>
         }
-     <li class="list-group-item">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" @bind="_newItem"/>
-                    <div class="input-group-append"> &nbsp;
-                        <button type="button" class="btn btn-outline-secondary cursor-pointer"
-                                @onclick="AddItem">
-                            Ajouter
-                        </button>
-                    </div>
+        <li class="list-group-item">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" @bind="_newItem"/>
+                <div class="input-group-append"> &nbsp;
+                    <button type="button" class="btn btn-outline-secondary cursor-pointer"
+                            @onclick="AddItem">
+                        Ajouter
+                    </button>
                 </div>
-            </li>
-        </ul>
+            </div>
+        </li>
+    </ul>  
+    <div  style="text-align: right">
+        <img  class="droptarget" src="images/trash_icon.png" width="48"/> 
+    </div> 
+     
+    
 </div>
