@@ -1,5 +1,5 @@
 @using Todo.Models
-<li class="list-group-item" draggable="true" data-todoItemId="@Item.Id" >
+<li class="list-group-item" data-todoItemId="@Item.Id" draggable="true" @ondragstart="@(()=>OnDragStart.InvokeAsync(Item))">
     <span><input type="checkbox" @bind="@Item.Done"/> @Item.Label <a href="/TodoItem/@Item.Id">Detail</a></span>
 </li>
  
@@ -7,5 +7,8 @@
 
     [Parameter, EditorRequired]
     public TodoItem Item { get; set; }
+
+    [Parameter]
+    public EventCallback<TodoItem> OnDragStart { get; set; }
 
 }

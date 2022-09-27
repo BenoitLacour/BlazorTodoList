@@ -1,6 +1,23 @@
 @page "/"
 @using Todo.Components
-<div class="card m-auto mt-5" style="width: 30rem;">
+@using Todo.Models
+
+@code {
+    private void OnDragItemStart(TodoItem item)
+    {
+        _itemDragged = item;
+    }
+
+    private TodoItem _itemDragged;
+
+    private void OnDropItem()
+    {
+        TodoList.Remove(_itemDragged.Id);
+        _itemDragged = null;
+    }
+
+}
+<div class="card m-auto mt-5" style="width: 30rem;" ondragover="event.preventDefault();">
     <div class="card-header  justify-content-between  text-primary fw-bold">
         Mes tâches
         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
@@ -11,7 +28,7 @@
     <ul class="list-group list-group-flush">
         @foreach (var item in TodoList.Items)
         {
-            <TodoItemComponent Item="@item"></TodoItemComponent>
+            <TodoItemComponent Item="@item" OnDragStart="OnDragItemStart"></TodoItemComponent>
         }
         <li class="list-group-item">
             <div class="input-group mb-3">
@@ -26,7 +43,7 @@
         </li>
     </ul>  
     <div  style="text-align: right">
-        <img  class="droptarget" src="images/trash_icon.png" width="48"/> 
+        <img class="droptarget" src="images/trash_icon.png" width="48" @ondrop="OnDropItem"/> 
     </div> 
      
     
