@@ -26,6 +26,11 @@
         <span class="badge badge-primary"></span>
     </div>
     <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+                <div class="input-group mb-3">
+                    <input  type="text" class="form-control"  @bind:event="oninput" placeholder="Search by item name"/>
+                </div>
+            </li>
         @foreach (var item in TodoList.Items)
         {
             <TodoItemComponent Item="@item" OnDragStart="OnDragItemStart"></TodoItemComponent>
