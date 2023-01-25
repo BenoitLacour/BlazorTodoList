@@ -1,8 +1,11 @@
 @page "/"
 @using Todo.Components
 @using Todo.Models
+@inherits ReactiveUI.Blazor.ReactiveInjectableComponentBase<TodoListPageViewModel>
 
 @code {
+
+
     private void OnDragItemStart(TodoItem item)
     {
         _itemDragged = item;
@@ -26,7 +29,12 @@
         <span class="badge badge-primary"></span>
     </div>
     <ul class="list-group list-group-flush">
-        @foreach (var item in TodoList.Items)
+        <li class="list-group-item">
+            <div class="input-group mb-3">
+                <input  type="text" class="form-control" @bind="@(ViewModel!.Search)" @bind:event="oninput" placeholder="Search by item name"/>
+            </div>
+        </li>
+        @foreach (var item in ViewModel!.FilteredTodoItems)
         {
             <TodoItemComponent Item="@item" OnDragStart="OnDragItemStart"></TodoItemComponent>
         }

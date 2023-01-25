@@ -1,3 +1,4 @@
+using System.Reactive.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Todo.Models;
 
@@ -9,8 +10,14 @@ public partial class TodoListPage
     public TodoList TodoList { get; set; }
     private string _newItem = String.Empty;
 
+    protected override void OnParametersSet()
+    {
+        ViewModel!.TodoItems = TodoList.Items.ToList();
+        base.OnParametersSet();
+    }
+
     private void AddItem()
     {
-        TodoList.Add(_newItem);
+        ViewModel!.AddNewItemCommand.Execute(_newItem).ToTask();
     }
 }
